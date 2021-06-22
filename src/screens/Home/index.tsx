@@ -7,8 +7,14 @@ import { ButtonAdd } from '../../components/ButtonAdd';
 import { Profile } from '../../components/Profile';
 
 import { styles } from './styles';
+import { useState } from 'react';
 
 export function Home(){
+  const [category, setCategory] = useState('');
+
+  function handlerCategorySelect (categoryId: string){
+    categoryId === category ? setCategory('') : setCategory(categoryId)
+  }
   return(
     <View>
       <View style={styles.header}>
@@ -16,7 +22,12 @@ export function Home(){
         <ButtonAdd />
       </View>
       <View>
-        <CategorySelect />
+        categorySelected = {category}
+        setCategory={handlerCategorySelect}
+        <CategorySelect
+          categorySelected={category}
+          setCategory={handlerCategorySelect}
+        />
       </View>
     </View>
   );
