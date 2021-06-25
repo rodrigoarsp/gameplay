@@ -16,6 +16,7 @@ export function Avatar({ urlImage }: Props){
       style={styles.container}
       colors={[secondary50, secondary70]}
     >
+      
     <Image
       source={{ uri:urlImage }}
       style={styles.avatar}

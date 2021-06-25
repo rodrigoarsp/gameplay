@@ -10,15 +10,19 @@ import { Category } from '../Category';
 type Props ={
   categorySelected: string;
   setCategory: (categoryId: string) => void;
+  hasChackBox?: boolean;
 }
 
 
 export function CategorySelect({
   categorySelected,
-  setCategory, }: Props){
+  setCategory,
+  hasChackBox = false,
+}: Props){
   return(
     <ScrollView 
       horizontal
+      style={styles.container}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={[styles.container, { paddingRight: 40 }]}
     >
@@ -30,6 +34,8 @@ export function CategorySelect({
             icon={category.icon}
             checked={category.id === categorySelected}
             onPress = {() => setCategory(category.id)}
+            hasChackBox={hasChackBox}
+            
           />
         ))
       }
